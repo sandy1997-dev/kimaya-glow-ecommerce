@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,6 +25,12 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				kimaya: {
+					primary: '#1c2710',
+					secondary: '#ded1c1',
+					accent: '#a69b8d',
+					light: '#f8f5f2',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -62,6 +69,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			fontFamily: {
+				'cormorant': ['Cormorant Garamond', 'serif'],
+				'opensauce': ['Open Sauce Sans', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
