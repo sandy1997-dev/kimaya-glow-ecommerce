@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
@@ -13,14 +12,18 @@ const mockWishlistItems = [
     name: "Traditional Silk Saree",
     price: 129.99,
     image: "https://images.unsplash.com/photo-1610189310444-04df119d0fe9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    description: "Handcrafted silk saree with intricate traditional design"
+    description: "Handcrafted silk saree with intricate traditional design",
+    category: "clothing",
+    inStock: true
   },
   {
     id: "2",
     name: "Embroidered Kurta",
     price: 89.99,
     image: "https://images.unsplash.com/photo-1611043714658-af3e56bc5299?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    description: "Beautiful embroidered kurta with traditional patterns"
+    description: "Beautiful embroidered kurta with traditional patterns",
+    category: "clothing",
+    inStock: true
   }
 ];
 
@@ -39,8 +42,10 @@ const WishlistPage = () => {
       name: item.name,
       price: item.price,
       image: item.image,
-      description: item.description
-    }, 1); // Adding the second argument (quantity) which was missing
+      description: item.description,
+      category: item.category,
+      inStock: item.inStock
+    }, 1);
     handleRemoveFromWishlist(item.id);
     toast.success("Item moved to cart");
   };
