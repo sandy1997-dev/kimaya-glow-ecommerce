@@ -40,7 +40,7 @@ const WishlistPage = () => {
       price: item.price,
       image: item.image,
       description: item.description
-    });
+    }, 1); // Adding the second argument (quantity) which was missing
     handleRemoveFromWishlist(item.id);
     toast.success("Item moved to cart");
   };
