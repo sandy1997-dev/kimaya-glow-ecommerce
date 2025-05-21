@@ -1,9 +1,11 @@
+
 import { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
-import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import PaymentProcessing from '@/components/checkout/PaymentProcessing';
 import { toast } from '@/hooks/use-toast';
+import CheckoutForm from '@/components/checkout/CheckoutForm';
+import CheckoutOrderSummary from '@/components/checkout/CheckoutOrderSummary';
+import PaymentProcessing from '@/components/checkout/PaymentProcessing';
 
 const CheckoutPage = () => {
   const { cartItems, totalPrice, clearCart } = useCart();
@@ -77,163 +79,11 @@ const CheckoutPage = () => {
           {!showPayment ? (
             <>
               <div className="lg:col-span-2">
-                <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-sm p-6">
-                  <h2 className="text-xl font-medium text-kimaya-primary mb-6">
-                    Shipping Information
-                  </h2>
-                  
-                  
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <label htmlFor="firstName" className="block text-kimaya-primary mb-1">
-                        First Name
-                      </label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-kimaya-accent/50 rounded-md focus:outline-none focus:ring-1 focus:ring-kimaya-primary"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="lastName" className="block text-kimaya-primary mb-1">
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-kimaya-accent/50 rounded-md focus:outline-none focus:ring-1 focus:ring-kimaya-primary"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="email" className="block text-kimaya-primary mb-1">
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-kimaya-accent/50 rounded-md focus:outline-none focus:ring-1 focus:ring-kimaya-primary"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="phone" className="block text-kimaya-primary mb-1">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-kimaya-accent/50 rounded-md focus:outline-none focus:ring-1 focus:ring-kimaya-primary"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <label htmlFor="address" className="block text-kimaya-primary mb-1">
-                      Address
-                    </label>
-                    <input
-                      type="text"
-                      id="address"
-                      name="address"
-                      value={formData.address}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-kimaya-accent/50 rounded-md focus:outline-none focus:ring-1 focus:ring-kimaya-primary"
-                    />
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                    <div>
-                      <label htmlFor="city" className="block text-kimaya-primary mb-1">
-                        City
-                      </label>
-                      <input
-                        type="text"
-                        id="city"
-                        name="city"
-                        value={formData.city}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-kimaya-accent/50 rounded-md focus:outline-none focus:ring-1 focus:ring-kimaya-primary"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="state" className="block text-kimaya-primary mb-1">
-                        State/Province
-                      </label>
-                      <input
-                        type="text"
-                        id="state"
-                        name="state"
-                        value={formData.state}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-kimaya-accent/50 rounded-md focus:outline-none focus:ring-1 focus:ring-kimaya-primary"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="zipCode" className="block text-kimaya-primary mb-1">
-                        ZIP/Postal Code
-                      </label>
-                      <input
-                        type="text"
-                        id="zipCode"
-                        name="zipCode"
-                        value={formData.zipCode}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-kimaya-accent/50 rounded-md focus:outline-none focus:ring-1 focus:ring-kimaya-primary"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="mb-8">
-                    <label htmlFor="country" className="block text-kimaya-primary mb-1">
-                      Country
-                    </label>
-                    <select
-                      id="country"
-                      name="country"
-                      value={formData.country}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-kimaya-accent/50 rounded-md focus:outline-none focus:ring-1 focus:ring-kimaya-primary"
-                    >
-                      <option value="US">United States</option>
-                      <option value="CA">Canada</option>
-                      <option value="UK">United Kingdom</option>
-                      <option value="AU">Australia</option>
-                      <option value="IN">India</option>
-                    </select>
-                  </div>
-                  
-                  <div className="mt-8">
-                    <Button type="submit" className="w-full bg-kimaya-primary text-white hover:bg-opacity-90">
-                      Continue to Payment
-                    </Button>
-                  </div>
-                </form>
+                <CheckoutForm 
+                  formData={formData}
+                  handleChange={handleChange}
+                  handleSubmit={handleSubmit}
+                />
               </div>
             </>
           ) : (
@@ -247,58 +97,13 @@ const CheckoutPage = () => {
           )}
           
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-xl font-medium text-kimaya-primary mb-6">
-                Order Summary
-              </h2>
-              
-              <div className="space-y-4 mb-6">
-                {cartItems.map(item => (
-                  <div key={item.product.id} className="flex justify-between">
-                    <div className="flex">
-                      <div className="w-16 h-16 mr-3">
-                        <img 
-                          src={item.product.image} 
-                          alt={item.product.name}
-                          className="w-full h-full object-cover rounded-md"
-                        />
-                      </div>
-                      <div>
-                        <h4 className="text-kimaya-primary">{item.product.name}</h4>
-                        <p className="text-sm text-kimaya-primary opacity-80">
-                          Qty: {item.quantity}
-                        </p>
-                      </div>
-                    </div>
-                    <span className="text-kimaya-primary">
-                      ${(item.product.price * item.quantity).toFixed(2)}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="border-t border-kimaya-accent/30 pt-4 space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-kimaya-primary">Subtotal</span>
-                  <span className="text-kimaya-primary">${subtotal.toFixed(2)}</span>
-                </div>
-                
-                <div className="flex justify-between">
-                  <span className="text-kimaya-primary">Shipping</span>
-                  <span className="text-kimaya-primary">${shippingCost.toFixed(2)}</span>
-                </div>
-                
-                <div className="flex justify-between">
-                  <span className="text-kimaya-primary">Tax (7%)</span>
-                  <span className="text-kimaya-primary">${tax.toFixed(2)}</span>
-                </div>
-                
-                <div className="border-t border-kimaya-accent/30 pt-2 mt-2 flex justify-between">
-                  <span className="font-medium text-kimaya-primary">Total</span>
-                  <span className="font-medium text-kimaya-primary">${total.toFixed(2)}</span>
-                </div>
-              </div>
-            </div>
+            <CheckoutOrderSummary
+              cartItems={cartItems}
+              subtotal={subtotal}
+              shippingCost={shippingCost}
+              tax={tax}
+              total={total}
+            />
           </div>
         </div>
       </div>
