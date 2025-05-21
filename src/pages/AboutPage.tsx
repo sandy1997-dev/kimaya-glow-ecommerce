@@ -1,4 +1,7 @@
 
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+
 const AboutPage = () => {
   return (
     <div className="py-12">
@@ -191,4 +194,3 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-
