@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Menu } from 'lucide-react';
+import { ShoppingCart, Menu, Heart, User } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useCart } from '@/contexts/CartContext';
 
@@ -43,8 +43,16 @@ const Navbar = () => {
             </div>
           </div>
           
-          <div className="flex items-center">
-            <Link to="/cart" className="relative mr-4">
+          <div className="flex items-center space-x-4">
+            <Link to="/wishlist" className="relative">
+              <Heart className="h-6 w-6 text-kimaya-primary" />
+            </Link>
+            
+            <Link to="/profile" className="relative">
+              <User className="h-6 w-6 text-kimaya-primary" />
+            </Link>
+            
+            <Link to="/cart" className="relative">
               <ShoppingCart className="h-6 w-6 text-kimaya-primary" />
               {totalItems > 0 && (
                 <span className="absolute -top-2 -right-2 bg-kimaya-primary text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
@@ -96,6 +104,20 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
+              </Link>
+              <Link 
+                to="/profile" 
+                className={`${isActive('/profile') ? 'bg-kimaya-secondary' : ''} block px-3 py-2 rounded-md text-kimaya-primary hover:bg-kimaya-secondary`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                My Account
+              </Link>
+              <Link 
+                to="/wishlist" 
+                className={`${isActive('/wishlist') ? 'bg-kimaya-secondary' : ''} block px-3 py-2 rounded-md text-kimaya-primary hover:bg-kimaya-secondary`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Wishlist
               </Link>
             </div>
           </div>
