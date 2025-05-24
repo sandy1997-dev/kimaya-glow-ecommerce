@@ -19,18 +19,24 @@ const CheckoutPage = () => {
     address: '',
     city: '',
     state: '',
-    zipCode: '',
-    country: 'US',
-    paymentMethod: 'credit'
+    pinCode: '',
+    country: 'IN',
+    paymentMethod: 'upi',
+    gstNumber: ''
   });
   
   const [showPayment, setShowPayment] = useState(false);
   const [orderId, setOrderId] = useState('');
   
-  const shippingCost = 5.99;
+  const shippingCost = totalPrice >= 999 ? 0 : 99; // Free shipping above ₹999
   const subtotal = totalPrice;
-  const tax = subtotal * 0.07;
-  const total = subtotal + shippingCost + tax;
+  
+  // Indian GST calculations
+  const cgst = subtotal * 0.09; // 9% CGST
+  const sgst = subtotal * 0.09; // 9% SGST
+  const totalGst = cgst + sgst; // Total 18% GST
+  
+  const total = subtotal + shippingCost + totalGst;
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -42,21 +48,18 @@ const CheckoutPage = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Generate a sample order ID
-    const newOrderId = `KM-${Math.floor(100000 + Math.random() * 900000)}`;
+    // Generate Indian order ID format
+    const newOrderId = `KIM${Date.now()}${Math.floor(Math.random() * 1000)}`;
     setOrderId(newOrderId);
     setShowPayment(true);
     
-    // In a real implementation, this would send the checkout data to the backend
     toast({
-      title: "Order created!",
-      description: "Please complete your payment.",
+      title: "Order created successfully!",
+      description: "Complete your payment using UPI, Net Banking, or Card.",
     });
   };
   
   const handlePaymentComplete = () => {
-    // Here we would normally process the payment and order
-    // For now, we'll just simulate a successful order
     setTimeout(() => {
       clearCart();
       navigate('/order-confirmation');
@@ -69,11 +72,14 @@ const CheckoutPage = () => {
   }
 
   return (
-    <div className="py-12">
+    <div className="py-12 bg-gradient-to-br from-indigo-50 via-white to-purple-50 min-h-screen">
       <div className="kimaya-container">
-        <h1 className="text-3xl font-cormorant font-semibold text-kimaya-primary mb-8">
-          Checkout
-        </h1>
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-cormorant font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+            Secure Checkout
+          </h1>
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 mx-auto rounded-full"></div>
+        </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {!showPayment ? (
@@ -101,7 +107,9 @@ const CheckoutPage = () => {
               cartItems={cartItems}
               subtotal={subtotal}
               shippingCost={shippingCost}
-              tax={tax}
+              cgst={cgst}
+              sgst={sgst}
+              totalGst={totalGst}
               total={total}
             />
           </div>
