@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { products } from '@/data/products';
@@ -9,35 +8,73 @@ const HomePage = () => {
   const newArrivals = products.filter(product => product.isNew);
 
   return (
-    <div>
+    <div className="relative">
       {/* Hero Section */}
-      <section className="bg-kimaya-secondary py-20">
-        <div className="kimaya-container">
+      <section className="relative py-32 overflow-hidden">
+        <div className="kimaya-container relative z-10">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-cormorant font-semibold text-kimaya-primary mb-4">
-                Natural Skincare <br />for Radiant Skin
+              <div className="terminal-text text-xs mb-4 animate-fade-in">
+                > Initializing Kimaya Natural Skincare Protocol...
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-cormorant font-bold text-kimaya-primary mb-6 neon-text animate-fade-in">
+                Natural Skincare <br />
+                <span className="bg-gradient-to-r from-kimaya-primary to-kimaya-accent bg-clip-text text-transparent">
+                  for Radiant Skin
+                </span>
               </h1>
-              <p className="text-kimaya-primary text-lg mb-6">
+              
+              <p className="text-kimaya-primary text-xl mb-8 opacity-90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
                 Experience the transformative power of nature with our handcrafted skincare products made from ethically sourced botanical ingredients.
               </p>
-              <div className="flex space-x-4">
-                <Button className="bg-kimaya-primary text-white hover:bg-opacity-90">
+              
+              <div className="flex space-x-6 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                <Button className="futuristic-btn text-lg px-8 py-4">
                   <Link to="/products">Shop Now</Link>
                 </Button>
-                <Button variant="outline" className="border-kimaya-primary text-kimaya-primary hover:bg-kimaya-primary hover:text-white">
+                <Button variant="outline" className="border-2 border-kimaya-primary text-kimaya-primary hover:bg-kimaya-primary hover:text-white text-lg px-8 py-4 hover:scale-105 transition-all duration-300">
                   <Link to="/about">Learn More</Link>
                 </Button>
               </div>
+              
+              {/* Futuristic Stats */}
+              <div className="grid grid-cols-3 gap-6 mt-12 animate-fade-in" style={{ animationDelay: '0.9s' }}>
+                <div className="text-center glass-morphism p-4 rounded-lg">
+                  <div className="text-2xl font-bold text-kimaya-primary font-orbitron neon-text">100%</div>
+                  <div className="text-sm text-kimaya-accent">Natural</div>
+                </div>
+                <div className="text-center glass-morphism p-4 rounded-lg">
+                  <div className="text-2xl font-bold text-kimaya-primary font-orbitron neon-text">1000+</div>
+                  <div className="text-sm text-kimaya-accent">Happy Customers</div>
+                </div>
+                <div className="text-center glass-morphism p-4 rounded-lg">
+                  <div className="text-2xl font-bold text-kimaya-primary font-orbitron neon-text">0</div>
+                  <div className="text-sm text-kimaya-accent">Animal Testing</div>
+                </div>
+              </div>
             </div>
             
-            <div className="md:w-1/2">
-              <div className="relative h-64 md:h-96 bg-kimaya-accent rounded-lg flex items-center justify-center">
+            <div className="md:w-1/2 relative">
+              <div className="relative h-96 md:h-[500px] glass-morphism rounded-3xl flex items-center justify-center overflow-hidden group">
                 <img 
                   src="/placeholder.svg" 
                   alt="Kimaya Skincare Products" 
-                  className="h-full w-full object-cover rounded-lg"
+                  className="h-full w-full object-cover rounded-3xl transition-transform duration-500 group-hover:scale-110"
                 />
+                
+                {/* Holographic Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-kimaya-primary/10 via-transparent to-kimaya-accent/10 rounded-3xl" />
+                
+                {/* Scanning Lines */}
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-kimaya-primary to-transparent animate-pulse" />
+                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-kimaya-accent to-transparent animate-pulse" style={{ animationDelay: '1s' }} />
+                
+                {/* Corner Accents */}
+                <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-kimaya-primary" />
+                <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-kimaya-primary" />
+                <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-kimaya-accent" />
+                <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-kimaya-accent" />
               </div>
             </div>
           </div>
@@ -45,86 +82,83 @@ const HomePage = () => {
       </section>
       
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 relative">
         <div className="kimaya-container">
-          <h2 className="text-3xl font-cormorant font-semibold text-kimaya-primary text-center mb-12">
+          <h2 className="text-4xl font-cormorant font-bold text-kimaya-primary text-center mb-4 neon-text">
             Why Choose Kimaya?
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-kimaya-primary to-kimaya-accent mx-auto rounded-full mb-16" />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6 bg-kimaya-light rounded-lg">
-              <div className="bg-kimaya-secondary w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-kimaya-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+            {[
+              {
+                title: "100% Natural",
+                description: "We use only pure, natural ingredients sourced responsibly from trusted partners.",
+                icon: "✓"
+              },
+              {
+                title: "Cruelty-Free",
+                description: "We never test on animals and ensure our suppliers follow the same ethical standards.",
+                icon: "♡"
+              },
+              {
+                title: "Eco-Friendly",
+                description: "Our packaging is sustainable and recyclable to minimize environmental impact.",
+                icon: "⚡"
+              }
+            ].map((benefit, index) => (
+              <div key={benefit.title} className="text-center p-8 hologram-card rounded-2xl floating-element" style={{ animationDelay: `${index * 0.2}s` }}>
+                <div className="glass-morphism w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 text-3xl neon-glow">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-2xl font-cormorant font-bold text-kimaya-primary mb-4 neon-text">
+                  {benefit.title}
+                </h3>
+                <p className="text-kimaya-primary opacity-80">
+                  {benefit.description}
+                </p>
+                
+                {/* Progress indicator */}
+                <div className="loading-bar mt-6" />
               </div>
-              <h3 className="text-xl font-cormorant font-semibold text-kimaya-primary mb-2">
-                100% Natural
-              </h3>
-              <p className="text-kimaya-primary">
-                We use only pure, natural ingredients sourced responsibly from trusted partners.
-              </p>
-            </div>
-            
-            <div className="text-center p-6 bg-kimaya-light rounded-lg">
-              <div className="bg-kimaya-secondary w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-kimaya-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-cormorant font-semibold text-kimaya-primary mb-2">
-                Cruelty-Free
-              </h3>
-              <p className="text-kimaya-primary">
-                We never test on animals and ensure our suppliers follow the same ethical standards.
-              </p>
-            </div>
-            
-            <div className="text-center p-6 bg-kimaya-light rounded-lg">
-              <div className="bg-kimaya-secondary w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-kimaya-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 22s8-4 8-10V6l-8-4-8 4v6c0 6 8 10 8 10z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-cormorant font-semibold text-kimaya-primary mb-2">
-                Eco-Friendly
-              </h3>
-              <p className="text-kimaya-primary">
-                Our packaging is sustainable and recyclable to minimize environmental impact.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
       
       {/* Featured Products Section */}
-      <section className="py-16 bg-kimaya-light">
+      <section className="py-20 relative">
         <div className="kimaya-container">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-cormorant font-semibold text-kimaya-primary">
-              Featured Products
-            </h2>
+          <div className="flex justify-between items-center mb-12">
+            <div>
+              <h2 className="text-4xl font-cormorant font-bold text-kimaya-primary neon-text">
+                Featured Products
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-kimaya-primary to-kimaya-accent rounded-full mt-2" />
+            </div>
             
             <Link 
               to="/products" 
-              className="text-kimaya-primary border-b-2 border-kimaya-primary hover:opacity-80 transition-opacity"
+              className="text-kimaya-primary border-b-2 border-kimaya-primary hover:opacity-80 transition-opacity font-orbitron tracking-wider"
             >
-              View All
+              View All →
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProducts.map((product, index) => (
+              <div key={product.id} style={{ animationDelay: `${index * 0.2}s` }}>
+                <ProductCard product={product} />
+              </div>
             ))}
           </div>
         </div>
       </section>
       
       {/* Testimonials Section */}
-      <section className="py-16 bg-kimaya-secondary">
+      <section className="py-20 relative">
         <div className="kimaya-container">
-          <h2 className="text-3xl font-cormorant font-semibold text-kimaya-primary text-center mb-12">
+          <h2 className="text-4xl font-cormorant font-bold text-kimaya-primary text-center mb-4 neon-text">
             What Our Customers Say
           </h2>
           
@@ -190,22 +224,25 @@ const HomePage = () => {
       </section>
       
       {/* New Arrivals Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 relative">
         <div className="kimaya-container">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-cormorant font-semibold text-kimaya-primary">
-              New Arrivals
-            </h2>
+          <div className="flex justify-between items-center mb-12">
+            <div>
+              <h2 className="text-4xl font-cormorant font-bold text-kimaya-primary neon-text">
+                New Arrivals
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-kimaya-primary to-kimaya-accent rounded-full mt-2" />
+            </div>
             
             <Link 
               to="/products" 
-              className="text-kimaya-primary border-b-2 border-kimaya-primary hover:opacity-80 transition-opacity"
+              className="text-kimaya-primary border-b-2 border-kimaya-primary hover:opacity-80 transition-opacity font-orbitron tracking-wider"
             >
-              View All
+              View All →
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {newArrivals.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -214,13 +251,14 @@ const HomePage = () => {
       </section>
       
       {/* Newsletter Section */}
-      <section className="py-16 bg-kimaya-primary text-white">
-        <div className="kimaya-container">
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-kimaya-primary to-kimaya-accent opacity-90" />
+        <div className="kimaya-container relative z-10">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-cormorant font-semibold mb-4">
+            <h2 className="text-4xl font-cormorant font-bold mb-6 text-white neon-text">
               Join Our Newsletter
             </h2>
-            <p className="mb-6 opacity-90">
+            <p className="mb-8 opacity-90 text-white text-lg">
               Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.
             </p>
             
@@ -228,12 +266,17 @@ const HomePage = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-md text-kimaya-primary focus:outline-none"
+                className="flex-1 px-6 py-4 rounded-lg text-kimaya-primary focus:outline-none glass-morphism border border-white/30"
               />
-              <Button className="bg-kimaya-secondary text-kimaya-primary hover:bg-opacity-90">
+              <Button className="futuristic-btn px-8 py-4">
                 Subscribe
               </Button>
             </form>
+            
+            {/* Data visualization */}
+            <div className="mt-8 text-center terminal-text text-sm">
+              > Newsletter subscribers: 2,847 and counting...
+            </div>
           </div>
         </div>
       </section>

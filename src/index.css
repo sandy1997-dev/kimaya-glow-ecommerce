@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -45,6 +46,8 @@
 
   body {
     @apply bg-background text-foreground font-opensauce;
+    background: linear-gradient(135deg, #f8f5f2 0%, #ded1c1 50%, #f8f5f2 100%);
+    background-attachment: fixed;
   }
   
   h1, h2 {
@@ -66,4 +69,249 @@
 
 .btn-outline {
   @apply border border-kimaya-primary text-kimaya-primary px-4 py-2 rounded-md hover:bg-kimaya-primary hover:text-white transition-all;
+}
+
+/* Futuristic Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(28, 39, 16, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(28, 39, 16, 0.4); }
+}
+
+@keyframes hologram-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes data-stream {
+  0% { transform: translateY(100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+@keyframes matrix-rain {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Futuristic UI Components */
+.glass-morphism {
+  background: rgba(248, 245, 242, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(222, 209, 193, 0.2);
+}
+
+.holographic-border {
+  position: relative;
+  background: linear-gradient(45deg, #ded1c1, #a69b8d, #ded1c1, #a69b8d);
+  background-size: 400% 400%;
+  animation: hologram-shift 3s ease infinite;
+}
+
+.neon-glow {
+  box-shadow: 
+    0 0 10px rgba(28, 39, 16, 0.3),
+    0 0 20px rgba(28, 39, 16, 0.2),
+    0 0 30px rgba(28, 39, 16, 0.1);
+}
+
+.floating-element {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.scan-line-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #1c2710, transparent);
+  animation: scan-line 3s ease-in-out infinite;
+}
+
+.data-stream::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(to bottom, transparent, #1c2710, transparent);
+  animation: data-stream 2s linear infinite;
+}
+
+.matrix-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-bg::before {
+  content: '01001010 01101001 01101101 01100001 01111001 01100001';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: rgba(28, 39, 16, 0.1);
+  animation: matrix-rain 10s linear infinite;
+  white-space: nowrap;
+}
+
+.neon-text {
+  text-shadow: 
+    0 0 5px rgba(28, 39, 16, 0.5),
+    0 0 10px rgba(28, 39, 16, 0.3),
+    0 0 15px rgba(28, 39, 16, 0.2);
+  animation: neon-flicker 2s ease-in-out infinite alternate;
+}
+
+/* 3D Transform Effects */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg) translateZ(10px);
+}
+
+/* Interactive Hologram Effect */
+.hologram-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(248, 245, 242, 0.1), rgba(222, 209, 193, 0.1));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(222, 209, 193, 0.3);
+}
+
+.hologram-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(166, 155, 141, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.hologram-card:hover::before {
+  left: 100%;
+}
+
+/* Particle System */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(28, 39, 16, 0.3);
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Futuristic Button */
+.futuristic-btn {
+  position: relative;
+  background: linear-gradient(45deg, #1c2710, #a69b8d);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 15px 100%);
+  transition: all 0.3s ease;
+}
+
+.futuristic-btn:hover {
+  background: linear-gradient(45deg, #a69b8d, #1c2710);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(28, 39, 16, 0.3);
+}
+
+.futuristic-btn::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1));
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 15px 100%);
+}
+
+/* Loading Bars */
+.loading-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(222, 209, 193, 0.2);
+  overflow: hidden;
+}
+
+.loading-bar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #1c2710, transparent);
+  animation: scan-line 2s ease-in-out infinite;
+}
+
+/* Cyberpunk Grid */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(28, 39, 16, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 39, 16, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Terminal Effect */
+.terminal-text {
+  font-family: 'Courier New', monospace;
+  background: #1c2710;
+  color: #ded1c1;
+  padding: 1rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.terminal-text::before {
+  content: '> ';
+  color: #a69b8d;
+}
+
+/* Futuristic Scroll Indicator */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1c2710, #a69b8d, #ded1c1);
+  z-index: 1000;
+  transform-origin: left;
 }
