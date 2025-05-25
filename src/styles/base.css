@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 34 25% 93%;
+    --foreground: 82 30% 12%;
+
+    --card: 34 25% 93%;
+    --card-foreground: 82 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 82 30% 12%;
+
+    --primary: 82 30% 12%;
+    --primary-foreground: 34 25% 93%;
+
+    --secondary: 36 32% 87%;
+    --secondary-foreground: 82 30% 12%;
+
+    --muted: 36 32% 87%;
+    --muted-foreground: 82 30% 12%;
+
+    --accent: 36 12% 60%;
+    --accent-foreground: 82 30% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 36 12% 60%;
+    --input: 36 12% 60%;
+    --ring: 82 30% 12%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-opensauce;
+    background: linear-gradient(135deg, #f8f5f2 0%, #ded1c1 50%, #f8f5f2 100%);
+    background-attachment: fixed;
+  }
+  
+  h1, h2 {
+    @apply font-cormorant;
+  }
+}

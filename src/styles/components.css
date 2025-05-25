@@ -1,0 +1,96 @@
+
+.kimaya-container {
+  @apply container mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  @apply bg-kimaya-primary text-white px-4 py-2 rounded-md hover:opacity-90 transition-all;
+}
+
+.btn-secondary {
+  @apply bg-kimaya-secondary text-kimaya-primary px-4 py-2 rounded-md hover:opacity-90 transition-all;
+}
+
+.btn-outline {
+  @apply border border-kimaya-primary text-kimaya-primary px-4 py-2 rounded-md hover:bg-kimaya-primary hover:text-white transition-all;
+}
+
+/* Particle System */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(28, 39, 16, 0.3);
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Loading Bars */
+.loading-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(222, 209, 193, 0.2);
+  overflow: hidden;
+}
+
+.loading-bar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #1c2710, transparent);
+  animation: scan-line 2s ease-in-out infinite;
+}
+
+/* Cyberpunk Grid */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(28, 39, 16, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 39, 16, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Terminal Effect */
+.terminal-text {
+  font-family: 'Courier New', monospace;
+  background: #1c2710;
+  color: #ded1c1;
+  padding: 1rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.terminal-text::before {
+  content: '> ';
+  color: #a69b8d;
+}
+
+/* Futuristic Scroll Indicator */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1c2710, #a69b8d, #ded1c1);
+  z-index: 1000;
+  transform-origin: left;
+}
+
+/* 3D Transform Effects */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg) translateZ(10px);
+}

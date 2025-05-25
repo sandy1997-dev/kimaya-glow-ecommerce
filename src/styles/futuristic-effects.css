@@ -1,0 +1,72 @@
+
+/* Futuristic UI Components */
+.glass-morphism {
+  background: rgba(248, 245, 242, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(222, 209, 193, 0.2);
+}
+
+.holographic-border {
+  position: relative;
+  background: linear-gradient(45deg, #ded1c1, #a69b8d, #ded1c1, #a69b8d);
+  background-size: 400% 400%;
+  animation: hologram-shift 3s ease infinite;
+}
+
+.neon-glow {
+  box-shadow: 
+    0 0 10px rgba(28, 39, 16, 0.3),
+    0 0 20px rgba(28, 39, 16, 0.2),
+    0 0 30px rgba(28, 39, 16, 0.1);
+}
+
+/* Interactive Hologram Effect */
+.hologram-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(248, 245, 242, 0.1), rgba(222, 209, 193, 0.1));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(222, 209, 193, 0.3);
+}
+
+.hologram-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(166, 155, 141, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.hologram-card:hover::before {
+  left: 100%;
+}
+
+/* Futuristic Button */
+.futuristic-btn {
+  position: relative;
+  background: linear-gradient(45deg, #1c2710, #a69b8d);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 15px 100%);
+  transition: all 0.3s ease;
+}
+
+.futuristic-btn:hover {
+  background: linear-gradient(45deg, #a69b8d, #1c2710);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(28, 39, 16, 0.3);
+}
+
+.futuristic-btn::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1));
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 15px 100%);
+}
