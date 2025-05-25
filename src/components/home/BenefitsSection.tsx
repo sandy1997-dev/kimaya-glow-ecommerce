@@ -19,29 +19,25 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 nature-bg opacity-30"></div>
-      <div className="kimaya-container relative z-10">
-        <h2 className="text-4xl font-cormorant font-bold text-kimaya-primary text-center mb-4 nature-text">
+    <section className="py-20">
+      <div className="kimaya-container">
+        <h2 className="text-4xl font-cormorant font-bold text-kimaya-primary text-center mb-4">
           Why Choose Kimaya?
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-green-500 via-kimaya-primary to-emerald-400 mx-auto rounded-full mb-16" />
+        <div className="w-24 h-1 bg-kimaya-primary mx-auto rounded-full mb-16" />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={benefit.title} className="text-center p-8 nature-card rounded-2xl floating-element" style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="nature-icon-container w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 text-3xl">
+            <div key={benefit.title} className="text-center p-8 bg-white rounded-lg shadow-md card-hover">
+              <div className="w-20 h-20 mx-auto bg-kimaya-secondary rounded-full flex items-center justify-center mb-6 text-3xl">
                 {benefit.icon}
               </div>
-              <h3 className="text-2xl font-cormorant font-bold text-kimaya-primary mb-4 nature-text">
+              <h3 className="text-2xl font-cormorant font-bold text-kimaya-primary mb-4">
                 {benefit.title}
               </h3>
               <p className="text-kimaya-primary opacity-80">
                 {benefit.description}
               </p>
-              
-              {/* Nature progress indicator */}
-              <div className="nature-progress-bar mt-6" />
             </div>
           ))}
         </div>
